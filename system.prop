@@ -41,6 +41,7 @@ ro.qualcomm.cabl=2
 debug.sf.hw=1
 debug.egl.hw=1
 debug.mdpcomp.logs=0
+qemu.hw.mainkeys=0
 
 #
 # system prop for opengles version

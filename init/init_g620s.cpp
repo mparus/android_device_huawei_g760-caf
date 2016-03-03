@@ -152,4 +152,14 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.telephony.default_network", "9");
         property_set("ro.sf.lcd_density","240");
     }
+   /* G760-L01 */
+    else if (strstr(model, "G760-L01") != NULL) {
+        property_set("ro.product.model", "HUAWEI G760-L01");
+        property_set("ro.product.name", "G760-L01");
+        property_set("ro.product.device", "hwG760-L01");
+        property_set("ro.build.product", "G760-L01");
+        property_set("ro.telephony.default_network", "20");
+        property_set("ro.build.description", "G760-L01-user 5.1.1 GRJ90 C464B340 release-keys");
+        property_set("ro.build.fingerprint", "Huawei/G760-L01/hwG760-L01:5.1.1/HuaweiG760-L01/C464B340:user/release-keys");
+}
 }
