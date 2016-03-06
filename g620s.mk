@@ -116,10 +116,10 @@ PRODUCT_PACKAGES += \
     Snap
 
 # Snapdragoncamera
-PRODUCT_PACKAGES += \
-    SnapdragonCamera \
-    libjni_snapcammosaic \
-    libjni_snapcamtinyplanet
+#PRODUCT_PACKAGES += \
+#    SnapdragonCamera \
+#    libjni_snapcammosaic \
+#    libjni_snapcamtinyplanet
 
 # dataservices
 PRODUCT_PACKAGES += \
