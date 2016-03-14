@@ -16,7 +16,7 @@
 #
 
 # Inherit vendor blobs.
-$(call inherit-product, vendor/huawei/g620s/g620s-vendor.mk)
+$(call inherit-product, vendor/huawei/g760/g760-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 

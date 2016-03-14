@@ -21,12 +21,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Include all languages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Inherit from g620s device
-$(call inherit-product, device/huawei/g620s/g620s.mk)
+# Inherit from g760 device
+$(call inherit-product, device/huawei/g760/g760.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := full_g620s
-PRODUCT_DEVICE := g620s
+PRODUCT_NAME := full_g760
+PRODUCT_DEVICE := g760
 PRODUCT_BRAND := Huawei
 PRODUCT_MANUFACTURER := HUAWEI
-PRODUCT_MODEL := G620S-L01
+PRODUCT_MODEL := G760-L01

@@ -18,9 +18,9 @@
 # Product-specific compile-time definitions.
 #
 # inherit from the proprietary version
--include vendor/huawei/g620s/BoardConfigVendor.mk
+-include vendor/huawei/g760/BoardConfigVendor.mk
 
-LOCAL_PATH := device/huawei/g620s
+LOCAL_PATH := device/huawei/g760
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
@@ -87,7 +87,7 @@ USE_OPENGL_RENDERER := true
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_g620s.cpp
+TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_g760.cpp
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
@@ -161,7 +161,7 @@ BOARD_USES_QC_TIME_SERVICES := true
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS := \
-    device/huawei/g620s/cmhw \
+    device/huawei/g760/cmhw \
     hardware/cyanogen/cmhw
 
 #Enable HW based full disk encryption

@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Inherit full device.
-$(call inherit-product, device/huawei/g620s/full_g620s.mk)
+$(call inherit-product, device/huawei/g760/full_g760.mk)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
@@ -23,8 +23,8 @@ TARGET_SCREEN_WIDTH := 720
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_GMS_CLIENTID_BASE := android-g620s
+PRODUCT_GMS_CLIENTID_BASE := android-g760
 
-PRODUCT_NAME := cm_g620s
-PRODUCT_DEVICE := g620s
+PRODUCT_NAME := cm_g760
+PRODUCT_DEVICE := g760
 TARGET_UNOFFICIAL_BUILD_ID := mparus
