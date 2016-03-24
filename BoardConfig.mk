@@ -102,9 +102,9 @@ TARGET_KERNEL_SOURCE := kernel/huawei/msm8916-caf
 BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
 
-TARGET_KERNEL_CONFIG := g620s_defconfig
-TARGET_VARIANT_CONFIG := g620s_defconfig
-TARGET_SELINUX_CONFIG := g620s_defconfig
+TARGET_KERNEL_CONFIG := g760_defconfig
+TARGET_VARIANT_CONFIG := g760_defconfig
+TARGET_SELINUX_CONFIG := g760_defconfig
 #TARGET_KERNEL_CONFIG := cyanogenmod_cherry_defconfig
 #TARGET_VARIANT_CONFIG := cyanogenmod_cherry_defconfig
 #TARGET_SELINUX_CONFIG := cyanogenmod_cherry_defconfig
