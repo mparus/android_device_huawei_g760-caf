@@ -44,6 +44,7 @@ TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 # Audio
+AUDIO_FEATURE_ENABLED_FLUENCE := true
 AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 USE_CUSTOM_AUDIO_POLICY := 1
 BOARD_USES_ALSA_AUDIO := true

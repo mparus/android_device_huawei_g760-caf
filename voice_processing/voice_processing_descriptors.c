@@ -48,14 +48,14 @@ const effect_descriptor_t qcom_product_ns_descriptor = {
 
 //ENABLE_AGC
 // Automatic Gain Control fe022200-42b3-11e5-8918-0002a5d5c51b
-//const effect_descriptor_t qcom_product_agc_descriptor = {
-//        { 0x0a8abfe0, 0x654c, 0x11e0, 0xba26, { 0x00, 0x02, 0xa5, 0xd5, 0xc5, 0x1b } }, // type
-//        { 0xfe022200, 0x42b3, 0x11e5, 0x8918, { 0x00, 0x02, 0xa5, 0xd5, 0xc5, 0x1b } }, // uuid
-//        EFFECT_CONTROL_API_VERSION,
-//        (EFFECT_FLAG_TYPE_PRE_PROC|EFFECT_FLAG_DEVICE_IND),
-//        0,
-//        0,
-//        "Automatic Gain Control",
-//        "Qualcomm Fluence for Angler"
-//};
+const effect_descriptor_t qcom_product_agc_descriptor = {
+        { 0x0a8abfe0, 0x654c, 0x11e0, 0xba26, { 0x00, 0x02, 0xa5, 0xd5, 0xc5, 0x1b } }, // type
+        { 0xfe022200, 0x42b3, 0x11e5, 0x8918, { 0x00, 0x02, 0xa5, 0xd5, 0xc5, 0x1b } }, // uuid
+        EFFECT_CONTROL_API_VERSION,
+        (EFFECT_FLAG_TYPE_PRE_PROC|EFFECT_FLAG_DEVICE_IND),
+        0,
+        0,
+        "Automatic Gain Control",
+        "Qualcomm Fluence for Angler"
+};
 
