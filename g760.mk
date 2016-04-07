@@ -36,7 +36,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/prebuilts/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/prebuilts/mixer_paths.xml:system/etc/mixer_paths.xml \
-    $(LOCAL_PATH)/prebuilts/mixer_paths_qrd_skuh.xml:system/etc/mixer_paths_qrd_skuh.xml
+    $(LOCAL_PATH)/prebuilts/mixer_paths_qrd_skuh.xml:system/etc/mixer_paths_qrd_skuh.xml \
+    $(LOCAL_PATH)/prebuilts/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml
 
 # Feature definition files for msm8916
 PRODUCT_COPY_FILES += \
