@@ -673,6 +673,7 @@
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
         <ctl name="MI2S_RX Format" value="S16_LE" />
+	<ctl name="RX1 Digital Volume" value="90" />
     </path>
 
     <path name="headset-mic">
@@ -784,6 +785,7 @@
         <path name="adc1" />
         <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="MI2S_TX Channels" value="Two" />
+	<ctl name="MI2S_RX Format" value="S16_LE" />
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="ADC1 Volume" value="12" />
         <ctl name="ADC3 Volume" value="12" />
@@ -797,6 +799,7 @@
         <ctl name="ADC3 Volume" value="6" />
         <ctl name="DEC1 Volume" value="84" />
         <ctl name="DEC2 Volume" value="84" />
+	<ctl name="MI2S_RX Format" value="S16_LE" />
     </path>
 
     <path name="voice-dmic-ef-tmus">
