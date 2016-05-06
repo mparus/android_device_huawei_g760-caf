@@ -62,12 +62,10 @@ ro.sys.fw.bservice_enable=true
 ro.sys.fw.use_trim_settings=true
 
 # GPS
-persist.gps.qc_nlp_in_use=1
+persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
 ro.qc.sdk.izat.premium.enabled=0
 ro.qc.sdk.izat.service_mask=0x0
-persist.loc.nlp_name=com.qualcomm.location
-
 
 #system props for time-services
 persist.timed.enable=true
