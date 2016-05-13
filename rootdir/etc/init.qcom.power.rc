@@ -67,4 +67,5 @@ on property:init.svc.recovery=running
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler bfq
     rm /data/system/perfd/default_values
+    write /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0070/input/input2/easy_wakeup_gesture 1
     #start mpdecision

@@ -183,14 +183,13 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>0</item>
         <item>30</item>
         <item>46</item>
-        <item>70</item>
         <item>70</item>
         <item>94</item>
         <item>134</item>
         <item>148</item>
-        <item>252</item>
         <item>255</item>
     </integer-array>
 
@@ -292,7 +291,7 @@
     <bool name="config_enableAutoPowerModes">true</bool>
 
     <!-- Whether device supports double tap to wake -->
-    <bool name="config_supportDoubleTapWake">true</bool>
+    <bool name="config_supportDoubleTapWake">false</bool>
 
     <!-- Configuration to restart radio upon PDP_DEACTIVATE with
           error cause as Regular deactivation(36). -->

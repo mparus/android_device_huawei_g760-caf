@@ -622,7 +622,7 @@
 	<ctl name="Speaker Boost" value="ENABLE" />
         <ctl name="RX3 MIX1 INP1" value="RX1" />
         <ctl name="SPK DAC Switch" value="1" />
-	<ctl name="RX3 Digital Volume" value="92" />
+	<ctl name="RX3 Digital Volume" value="88" />
     </path>
 
     <path name="main-mic-test">
