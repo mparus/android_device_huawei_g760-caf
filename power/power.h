@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#define NODE_MAX (64)
+#define TAP_TO_WAKE_NODE "/sys/touch_screen/easy_wakeup_gesture"
+
 enum {
     PROFILE_POWER_SAVE = 0,
     PROFILE_BALANCED,
@@ -38,6 +41,7 @@ typedef struct governor_settings {
     int scaling_max_freq;
     int scaling_min_freq;
     int scaling_min_freq_off;
+    int nr_run_profile_sel;
 } power_profile;
 
 static power_profile profiles[PROFILE_MAX] = {
@@ -56,6 +60,7 @@ static power_profile profiles[PROFILE_MAX] = {
         .scaling_max_freq = 800000,
         .scaling_min_freq = 200000,
         .scaling_min_freq_off = 200000,
+        .nr_run_profile_sel = 2,
     },
     [PROFILE_BALANCED] = {
         .boost = 0,
@@ -72,6 +77,7 @@ static power_profile profiles[PROFILE_MAX] = {
         .scaling_max_freq = 1209600,
         .scaling_min_freq = 400000,
         .scaling_min_freq_off = 200000,
+        .nr_run_profile_sel = 0,
     },
     [PROFILE_HIGH_PERFORMANCE] = {
         .boost = 1,
@@ -90,6 +96,7 @@ static power_profile profiles[PROFILE_MAX] = {
         .scaling_max_freq = 1209600,
         .scaling_min_freq = 800000,
         .scaling_min_freq_off = 200000,
+        .nr_run_profile_sel = 1,
     },
     [PROFILE_BIAS_POWER_SAVE] = {
         .boost = 0,
@@ -106,5 +113,6 @@ static power_profile profiles[PROFILE_MAX] = {
         .scaling_max_freq = 1209600,
         .scaling_min_freq = 200000,
         .scaling_min_freq_off = 200000,
+        .nr_run_profile_sel = 2,
     },
 };

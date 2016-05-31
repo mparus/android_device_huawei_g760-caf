@@ -16,10 +16,6 @@
 
 LOCAL_PATH:= $(call my-dir)
 
-ifneq ($(TARGET_TAP_TO_WAKE_NODE),)
-  LOCAL_CFLAGS += -DTAP_TO_WAKE_NODE=\"$(TARGET_TAP_TO_WAKE_NODE)\"
-endif
-
 include $(CLEAR_VARS)
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SRC_FILES := power.c power-feature-default.c

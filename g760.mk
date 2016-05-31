@@ -242,6 +242,10 @@ PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # IPv6
 PRODUCT_PACKAGES += \
     ebtables \

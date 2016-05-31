@@ -29,6 +29,7 @@
 
 #define CPUFREQ_PATH "/sys/devices/system/cpu/cpu0/cpufreq/"
 #define INTERACTIVE_PATH "/sys/devices/system/cpu/cpufreq/interactive/"
+#define INTELLIPLUG_PROFILE_PATH "/sys/module/intelli_plug/parameters/"
 
 static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 static int boostpulse_fd = -1;
@@ -106,6 +107,8 @@ static void power_set_interactive(__attribute__((unused)) struct power_module *m
                         profiles[current_power_profile].target_loads);
         sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
                         profiles[current_power_profile].scaling_min_freq);
+        sysfs_write_int(INTELLIPLUG_PROFILE_PATH "nr_run_profile_sel",
+                        profiles[current_power_profile].nr_run_profile_sel);
     } else {
         sysfs_write_int(INTERACTIVE_PATH "hispeed_freq",
                         profiles[current_power_profile].hispeed_freq_off);
@@ -115,6 +118,8 @@ static void power_set_interactive(__attribute__((unused)) struct power_module *m
                         profiles[current_power_profile].target_loads_off);
         sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
                         profiles[current_power_profile].scaling_min_freq_off);
+        sysfs_write_int(INTELLIPLUG_PROFILE_PATH "nr_run_profile_sel",
+                        profiles[current_power_profile].nr_run_profile_sel);
     }
 }
 
@@ -150,6 +155,8 @@ static void set_power_profile(int profile)
                     profiles[profile].scaling_max_freq);
     sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
                     profiles[profile].scaling_min_freq);
+    sysfs_write_int(INTELLIPLUG_PROFILE_PATH "nr_run_profile_sel",
+                    profiles[profile].nr_run_profile_sel);
 
     current_power_profile = profile;
 }
@@ -203,19 +210,16 @@ static struct hw_module_methods_t power_module_methods = {
 
 void set_feature(struct power_module *module, feature_t feature, int state)
 {
-#ifdef TAP_TO_WAKE_NODE
     char tmp_str[NODE_MAX];
     if (feature == POWER_FEATURE_DOUBLE_TAP_TO_WAKE) {
         snprintf(tmp_str, NODE_MAX, "%d", state);
-        sysfs_write(TAP_TO_WAKE_NODE, tmp_str);
+        sysfs_write_str(TAP_TO_WAKE_NODE, tmp_str);
         return;
     }
-#endif
     set_device_specific_feature(module, feature, state);
 }
 
-static int get_feature(__attribute__((unused)) struct power_module *module,
-                       feature_t feature)
+int get_feature(struct power_module *module __unused, feature_t feature)
 {
     if (feature == POWER_FEATURE_SUPPORTED_PROFILES) {
         return PROFILE_MAX;

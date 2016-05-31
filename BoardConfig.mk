@@ -194,16 +194,16 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 TARGET_OTA_ASSERT_DEVICE := g620s,G620S,hwg620s,hwG620S,G620S-L01,g760,G760,hwg760,G760-L01,G760-L03
 
 # Enable dex pre-opt to speed up initial boot
-ifeq ($(HOST_OS),linux)
-  ifeq ($(WITH_DEXPREOPT),)
-    WITH_DEXPREOPT := true
-    WITH_DEXPREOPT_PIC := true
-    ifneq ($(TARGET_BUILD_VARIANT),user)
+#ifeq ($(HOST_OS),linux)
+#  ifeq ($(WITH_DEXPREOPT),)
+#    WITH_DEXPREOPT := true
+#    WITH_DEXPREOPT_PIC := true
+#    ifneq ($(TARGET_BUILD_VARIANT),user)
       # Retain classes.dex in APK's for non-user builds
-      DEX_PREOPT_DEFAULT := nostripping
-    endif
-  endif
-endif
+#      DEX_PREOPT_DEFAULT := nostripping
+#    endif
+#  endif
+#endif
 
 #Use dlmalloc instead of jemalloc for mallocs
 MALLOC_IMPL := dlmalloc

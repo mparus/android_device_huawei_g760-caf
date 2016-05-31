@@ -173,24 +173,24 @@
 /dev/tsc_ci0              0660   media       media
 
 /sys/devices/virtual/input/input* acc_fast_calibration_x     0660    system      input
-+/sys/devices/virtual/input/input* acc_fast_calibration_y    0660    system      input
-+/sys/devices/virtual/input/input* acc_fast_calibration_z    0660    system      input
-+/sys/devices/virtual/input/input* acc_offset_x              0660    system      input
-+/sys/devices/virtual/input/input* acc_offset_y              0660    system      input
-+/sys/devices/virtual/input/input* acc_offset_z              0660    system      input
-+/sys/devices/virtual/input/input* delay                     0660    system      input
-+/sys/devices/virtual/input/input* enable                    0660    system      input
-+/sys/devices/virtual/input/input* fifo_data_frame           0660    system      input
-+/sys/devices/virtual/input/input* fifo_data_sel             0660    system      input
-+/sys/devices/virtual/input/input* name                      0660    system      input
-+/sys/devices/virtual/input/input* place                     0660    system      input
-+/sys/devices/virtual/input/input* selftest                  0660    system      input
-+/sys/devices/virtual/input/input* temperature               0660    system      input
-+/sys/devices/virtual/input/input* test                      0660    system      input
-+/sys/devices/virtual/input/input* value                     0660    system      input
-+/sys/devices/virtual/input/input* op_mode                   0660    system      input
-+/sys/devices/virtual/input/input* rept_xy                   0660    system      input
-+/sys/devices/virtual/input/input* rept_z                    0660    system      input
+/sys/devices/virtual/input/input* acc_fast_calibration_y    0660    system      input
+/sys/devices/virtual/input/input* acc_fast_calibration_z    0660    system      input
+/sys/devices/virtual/input/input* acc_offset_x              0660    system      input
+/sys/devices/virtual/input/input* acc_offset_y              0660    system      input
+/sys/devices/virtual/input/input* acc_offset_z              0660    system      input
+/sys/devices/virtual/input/input* delay                     0660    system      input
+/sys/devices/virtual/input/input* enable                    0660    system      input
+/sys/devices/virtual/input/input* fifo_data_frame           0660    system      input
+/sys/devices/virtual/input/input* fifo_data_sel             0660    system      input
+/sys/devices/virtual/input/input* name                      0660    system      input
+/sys/devices/virtual/input/input* place                     0660    system      input
+/sys/devices/virtual/input/input* selftest                  0660    system      input
+/sys/devices/virtual/input/input* temperature               0660    system      input
+/sys/devices/virtual/input/input* test                      0660    system      input
+/sys/devices/virtual/input/input* value                     0660    system      input
+/sys/devices/virtual/input/input* op_mode                   0660    system      input
+/sys/devices/virtual/input/input* rept_xy                   0660    system      input
+/sys/devices/virtual/input/input* rept_z                    0660    system      input
 
 # sensors
 /sys/devices/i2c-12/12-*  			    pollrate_ms	   0664    system   system
@@ -289,3 +289,22 @@
 
 # Add device block for FRP
 /dev/block/platform/soc.0/7824900.sdhci/by-name/config    0660   system     system
+
+# power management
+/sys/devices/system/cpu/cpufreq/interactive	above_hispeed_delay 0664 system system 	
+/sys/devices/system/cpu/cpufreq/interactive	align_windows	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	boost	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	boostpulse	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	boostpulse_duration	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	go_hispeed_load	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	hispeed_freq	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	io_is_busy	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	max_freq_hysteresis	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	min_sample_time	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	target_loads	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	timer_rate	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	timer_slack	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	use_migration_notif	0664 system system
+/sys/devices/system/cpu/cpufreq/interactive	use_sched_load	0664 system system
+/sys/module/intelli_plug/parameters	nr_run_profile_sel	0664 system system
+
