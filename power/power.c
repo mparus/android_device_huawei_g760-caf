@@ -29,6 +29,8 @@
 
 #define CPUFREQ_PATH "/sys/devices/system/cpu/cpu0/cpufreq/"
 #define INTERACTIVE_PATH "/sys/devices/system/cpu/cpufreq/interactive/"
+#define ONDEMAND_PATH "/sys/devices/system/cpu/cpufreq/ondemand/"
+#define POWERSAVE_PATH "/sys/devices/system/cpu/cpufreq/powersave/"
 #define INTELLIPLUG_PROFILE_PATH "/sys/module/intelli_plug/parameters/"
 
 static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
@@ -99,23 +101,15 @@ static void power_set_interactive(__attribute__((unused)) struct power_module *m
     }
 
     if (on) {
-        sysfs_write_int(INTERACTIVE_PATH "hispeed_freq",
-                        profiles[current_power_profile].hispeed_freq);
-        sysfs_write_int(INTERACTIVE_PATH "go_hispeed_load",
-                        profiles[current_power_profile].go_hispeed_load);
-        sysfs_write_str(INTERACTIVE_PATH "target_loads",
-                        profiles[current_power_profile].target_loads);
+        sysfs_write_str(CPUFREQ_PATH "scaling_governor",
+                        profiles[current_power_profile].scaling_governor);
         sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
                         profiles[current_power_profile].scaling_min_freq);
         sysfs_write_int(INTELLIPLUG_PROFILE_PATH "nr_run_profile_sel",
                         profiles[current_power_profile].nr_run_profile_sel);
     } else {
-        sysfs_write_int(INTERACTIVE_PATH "hispeed_freq",
-                        profiles[current_power_profile].hispeed_freq_off);
-        sysfs_write_int(INTERACTIVE_PATH "go_hispeed_load",
-                        profiles[current_power_profile].go_hispeed_load_off);
-        sysfs_write_str(INTERACTIVE_PATH "target_loads",
-                        profiles[current_power_profile].target_loads_off);
+        sysfs_write_str(CPUFREQ_PATH "scaling_governor",
+                        profiles[current_power_profile].scaling_governor);
         sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
                         profiles[current_power_profile].scaling_min_freq_off);
         sysfs_write_int(INTELLIPLUG_PROFILE_PATH "nr_run_profile_sel",
@@ -135,22 +129,8 @@ static void set_power_profile(int profile)
 
     ALOGD("%s: setting profile %d", __func__, profile);
 
-    sysfs_write_int(INTERACTIVE_PATH "boost",
-                    profiles[profile].boost);
-    sysfs_write_int(INTERACTIVE_PATH "boostpulse_duration",
-                    profiles[profile].boostpulse_duration);
-    sysfs_write_int(INTERACTIVE_PATH "go_hispeed_load",
-                    profiles[profile].go_hispeed_load);
-    sysfs_write_int(INTERACTIVE_PATH "hispeed_freq",
-                    profiles[profile].hispeed_freq);
-    sysfs_write_int(INTERACTIVE_PATH "io_is_busy",
-                    profiles[profile].io_is_busy);
-    sysfs_write_int(INTERACTIVE_PATH "min_sample_time",
-                    profiles[profile].min_sample_time);
-    sysfs_write_int(INTERACTIVE_PATH "sampling_down_factor",
-                    profiles[profile].sampling_down_factor);
-    sysfs_write_str(INTERACTIVE_PATH "target_loads",
-                    profiles[profile].target_loads);
+    sysfs_write_str(CPUFREQ_PATH "scaling_governor",
+                    profiles[profile].scaling_governor);
     sysfs_write_int(CPUFREQ_PATH "scaling_max_freq",
                     profiles[profile].scaling_max_freq);
     sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
