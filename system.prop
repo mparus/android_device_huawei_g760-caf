@@ -98,7 +98,7 @@ persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
 audio.deep_buffer.media=true
 audio.legacy.postproc=true
-ro.config.vc_call_steps=20
+ro.config.vc_call_vol_steps=20
 
 # WiFi
 ro.disableWifiApFirmwareReload=true
