@@ -11,6 +11,12 @@ on enable-low-power
 
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
+    # Update foreground and background cpusets
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 2-3
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-1
+
     # HMP scheduler load tracking settings
     write /proc/sys/kernel/sched_ravg_hist_size 3
 
@@ -84,12 +90,16 @@ on enable-low-power
 
     # msm_hotplut settings
     write /sys/module/msm_hotplug/msm_enabled 1
+    write /sys/module/msm_hotplug/boost_lock_duration 2500
     write /sys/module/msm_hotplug/cpus_boosted 1
-    write /sys/module/cpu_boost/parameters/hotplug_boost N
     write /sys/module/msm_hotplug/down_lock_duration 100
-    write /sys/module/msm_hotplug/update_rates 10
     write /sys/module/msm_hotplug/fast_lane_load 400
+    write /sys/module/msm_hotplug/io_is_busy 0
+    write /sys/module/msm_hotplug/max_cpus_online 4    
+    write /sys/module/msm_hotplug/max_cpus_online_susp 1
+    write /sys/module/msm_hotplug/min_cpus_online 1
     write /sys/module/msm_hotplug/offline_load 0
+    write /sys/module/msm_hotplug/update_rates 10   
 
 on charger
     wait /dev/block/bootdevice/by-name/system

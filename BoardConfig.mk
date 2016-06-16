@@ -39,6 +39,7 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_BOARD_SUFFIX := _32
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
+ENABLE_CPUSETS := true
 
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
