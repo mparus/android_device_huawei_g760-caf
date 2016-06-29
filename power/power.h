@@ -54,7 +54,7 @@ static power_profile profiles[PROFILE_MAX] = {
         .nr_run_profile_sel = 2,
     },
     [PROFILE_BALANCED] = {
-	.scaling_governor = "ondemand",
+	.scaling_governor = "interactive",
         .scaling_max_freq = 1209600,
         .scaling_min_freq = 400000,
         .scaling_min_freq_off = 200000,
