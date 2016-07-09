@@ -1,2 +1,2 @@
-# TODO - root cause why the kernel generating this denial.
-allow kernel domain:process setsched;
+allow kernel camera_data_file:dir w_dir_perms;
+allow kernel camera_data_file:file create_file_perms;
