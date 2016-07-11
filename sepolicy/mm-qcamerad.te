@@ -8,3 +8,6 @@ allow servicemanager mm-qcamerad:dir search;
 allow servicemanager mm-qcamerad:file { open read };
 
 allow mm-qcamerad log_device:chr_file { write open };
+allow mm-qcamerad log_device:dir search;
+
+

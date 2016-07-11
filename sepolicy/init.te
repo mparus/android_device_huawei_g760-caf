@@ -14,3 +14,7 @@ allow init userdata_block_device:blk_file rw_file_perms;
 allow init cache_block_device:blk_file rw_file_perms;
 
 allow qti_init_shell radio_prop:property_service { set };
+
+allow init thermal_device:chr_file { write ioctl };
+allow init oem_block_device:blk_file write;
+allow init debugfs:dir mounton;
