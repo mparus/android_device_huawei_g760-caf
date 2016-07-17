@@ -1,1 +1,2 @@
 allow surfaceflinger log_device:chr_file { write open };
+allow surfaceflinger surfaceflinger:unix_stream_socket { IOCTLTEST };
