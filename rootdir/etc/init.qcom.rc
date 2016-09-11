@@ -51,6 +51,23 @@ on init
     write /proc/sys/vm/page-cluster 0
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
+# Create cgroup mount point for freezer
+    mkdir /dev/frz
+    mount cgroup none /dev/frz freezer
+
+# Create cgroup for pids
+#    mkdir /sys/fs/cgroup/pids 0750 root system
+#    mount cgroup none /sys/fs/cgroup/pids pids
+#    mkdir /sys/fs/cgroup/pids/unconfirm_app 0750 root system
+#    chown root system /sys/fs/cgroup/pids/unconfirm_app/cgroup.procs
+#    chmod 0660 /sys/fs/cgroup/pids/unconfirm_app/cgroup.procs
+#    chown root system /sys/fs/cgroup/pids/unconfirm_app/tasks
+#    chmod 0660 /sys/fs/cgroup/pids/unconfirm_app/tasks
+#    chown root system /sys/fs/cgroup/pids/unconfirm_app/pids.group_limit
+#    chmod 0660 /sys/fs/cgroup/pids/unconfirm_app/pids.group_limit
+#    chown root system /sys/fs/cgroup/pids/unconfirm_app/cgroup.event_control
+#    chmod 0220 /sys/fs/cgroup/pids/unconfirm_app/cgroup.event_control
+
 on fs
     wait /dev/block/bootdevice
     mount_all fstab.qcom
@@ -208,6 +225,10 @@ on boot
 
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
+
+    # Allow the power HAL to control cluster plug
+    chown system system /sys/module/cluster_plug/parameters/low_power_mode
+ 
 
     # Mark the copy complete flag to not completed
     write /data/misc/radio/copy_complete 0

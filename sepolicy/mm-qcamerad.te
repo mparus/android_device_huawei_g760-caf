@@ -9,5 +9,7 @@ allow servicemanager mm-qcamerad:file { open read };
 
 allow mm-qcamerad log_device:chr_file { write open };
 allow mm-qcamerad log_device:dir search;
-
-
+allow mm-qcamerad mm-qcamerad:tcp_socket create;
+allow mm-qcamerad mm-qcamerad:tcp_socket setopt;
+allow mm-qcamerad mm-qcamerad:tcp_socket bind;
+allow mm-qcamerad mm-qcamerad:tcp_socket listen;

@@ -31,18 +31,44 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
 
 # Architecture
+#TARGET_ARCH := arm
+#TARGET_ARCH_VARIANT := armv7-a-neon
+#TARGET_CPU_ABI := armeabi-v7a
+#TARGET_CPU_ABI2 := armeabi
+#TARGET_CPU_VARIANT := cortex-a53
+#TARGET_BOARD_SUFFIX := _32
+#TARGET_CPU_SMP := true
+#ARCH_ARM_HAVE_TLS_REGISTER := true
+#ENABLE_CPUSETS := true
+
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+
+# Architecture
+ifeq ($(USE_64_BIT),true)
+TARGET_BOARD_SUFFIX := _64
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := cortex-a53
+
+TARGET_USES_64_BIT_BINDER := true
+else
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := cortex-a53
-TARGET_BOARD_SUFFIX := _32
 TARGET_CPU_SMP := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CPU_VARIANT := cortex-a53
+endif
 ENABLE_CPUSETS := true
-
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 # Audio
 AUDIO_FEATURE_ENABLED_FLUENCE := true
@@ -90,6 +116,7 @@ TARGET_USES_ALIGNED_YCBCR420P := true
 # Init
 TARGET_UNIFIED_DEVICE := true
 #TARGET_INIT_VENDOR_LIB := libinit_msm
+#TARGET_INIT_VENDOR_LIB := libinit_g760
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_g760.cpp
 
@@ -103,14 +130,22 @@ BOARD_RAMDISK_OFFSET     := 0x02000000
 TARGET_KERNEL_SOURCE := kernel/huawei/msm8916-caf
 #TARGET_KERNEL_SOURCE := kernel/huawei/msm8916
 BOARD_DTBTOOL_ARGS := -2
-TARGET_KERNEL_ARCH := arm
+#TARGET_KERNEL_ARCH := arm
 
-TARGET_KERNEL_CONFIG := g760_defconfig
-TARGET_VARIANT_CONFIG := g760_defconfig
-TARGET_SELINUX_CONFIG := g760_defconfig
-#TARGET_KERNEL_CONFIG := cyanogenmod_cherry_defconfig
-#TARGET_VARIANT_CONFIG := cyanogenmod_cherry_defconfig
-#TARGET_SELINUX_CONFIG := cyanogenmod_cherry_defconfig
+#TARGET_KERNEL_CONFIG := g760_defconfig
+#TARGET_VARIANT_CONFIG := g760_defconfig
+#TARGET_SELINUX_CONFIG := g760_defconfig
+
+ifeq ($(USE_64_BIT),true)
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_USES_UNCOMPRESSED_KERNEL := true
+TARGET_KERNEL_CONFIG := g760-64_defconfig
+else
+TARGET_KERNEL_ARCH := arm
+TARGET_KERNEL_CONFIG := g760_defconfig 
+endif
+
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -128,6 +163,7 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 TARGET_TAP_TO_WAKE_NODE := /sys/touch_screen/easy_wakeup_gesture
 
 # Power
+#TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
 TARGET_POWERHAL_VARIANT := qcom
 
 # Qualcomm support
