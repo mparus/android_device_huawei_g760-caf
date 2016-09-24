@@ -465,12 +465,12 @@ service mpdecision /system/bin/mpdecision --avg_comp
    class main
    user root
    group system
-   disabled
    writepid /dev/cpuset/system-background/tasks
 
 service perfd /system/vendor/bin/perfd
    class main
    user root
+   disabled
    writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /system/vendor/bin/thermal-engine
@@ -726,6 +726,7 @@ service sensors /system/bin/sensors.qcom
     user root
     group root
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=true
     start netmgrd
@@ -933,6 +934,7 @@ service ril-daemon2 /system/bin/rild -c 2
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
     user root
+    writepid /dev/cpuset/system-background/tasks
     group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag log
 
 #service ril-daemon3 /system/bin/rild -c 3
@@ -1038,6 +1040,7 @@ service msm_irqbalance /system/bin/msm_irqbalance
     class core
     user root
     group root
+    disabled
     writepid /dev/cpuset/system-background/tasks
 
 # Huawei service
