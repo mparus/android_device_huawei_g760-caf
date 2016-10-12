@@ -465,6 +465,7 @@ service mpdecision /system/bin/mpdecision --avg_comp
    class main
    user root
    group system
+   disabled
    writepid /dev/cpuset/system-background/tasks
 
 service perfd /system/vendor/bin/perfd
