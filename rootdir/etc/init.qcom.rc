@@ -471,7 +471,6 @@ service mpdecision /system/bin/mpdecision --avg_comp
 service perfd /system/vendor/bin/perfd
    class main
    user root
-   disabled
    writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /system/vendor/bin/thermal-engine
@@ -1041,8 +1040,8 @@ service msm_irqbalance /system/bin/msm_irqbalance
     class core
     user root
     group root
-    disabled
     writepid /dev/cpuset/system-background/tasks
+    disabled
 
 # Huawei service
 service test_diag /system/bin/test_diag
