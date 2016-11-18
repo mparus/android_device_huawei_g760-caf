@@ -105,9 +105,6 @@ ro.config.vc_call_vol_steps=20
 ro.disableWifiApFirmwareReload=true
 wifi.supplicant_scan_interval=180
 
-# HWUI
-ro.hwui.text_large_cache_height=2048
-
 #Trim properties
 ro.sys.fw.use_trim_settings=true
 ro.sys.fw.empty_app_percent=50

@@ -22,12 +22,13 @@ TARGET_SCREEN_WIDTH := 720
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 PRODUCT_GMS_CLIENTID_BASE := android-g760
 
 PRODUCT_NAME := cm_g760
 PRODUCT_DEVICE := g760
-TARGET_UNOFFICIAL_BUILD_ID := mparus
+TARGET_UNOFFICIAL_BUILD_ID := mparus-without_root
 
 BOARD_VENDOR := g760
 TARGET_VENDOR := g760
