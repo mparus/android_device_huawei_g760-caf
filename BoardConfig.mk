@@ -163,7 +163,7 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 TARGET_TAP_TO_WAKE_NODE := /sys/touch_screen/easy_wakeup_gesture
 
 # Power
-#TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
+TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
 TARGET_POWERHAL_VARIANT := qcom
 
 # Qualcomm support

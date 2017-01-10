@@ -138,6 +138,10 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+# CMActions
+#PRODUCT_PACKAGES += \
+#    CMActions
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/prebuilts/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \

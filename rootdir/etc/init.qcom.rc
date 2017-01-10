@@ -447,7 +447,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 #enable zram
 on property:ro.config.zram=true
     swapon_all fstab.qcom
-    write /proc/sys/vm/swappiness 100
+#    write /proc/sys/vm/swappiness 100
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -1052,3 +1052,8 @@ service rmt_oeminfo /system/bin/rmt_oeminfo
     class core
     user root
     seclabel u:r:oeminfo:s0
+
+service qcom-power /system/bin/sh /system/etc/init.qcom.power.sh
+    disabled
+    oneshot
+
